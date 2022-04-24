@@ -37,6 +37,7 @@ git init
 git config user.name $GH_NAME
 git config user.email $GH_MAIL
 git config --global --add safe.directory /github/workspace
+git config --global --add safe.directory /github/workspace/$TEMP_CLONE_FOLDER
 
 git pull https://$GH_TOKEN@github.com/$REPO.wiki.git
 cd ..
