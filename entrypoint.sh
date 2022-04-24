@@ -29,13 +29,14 @@ if [ -z "$WIKI_DIR" ]; then
 fi
 
 echo "Configuring wiki git..."
-# Setup credentials
-git config user.name $GH_NAME
-git config user.email $GH_MAIL
-
 mkdir $TEMP_CLONE_FOLDER
 cd $TEMP_CLONE_FOLDER
 git init
+
+# Setup credentials
+git config user.name $GH_NAME
+git config user.email $GH_MAIL
+git config --global --add safe.directory /github/workspace
 
 git pull https://$GH_TOKEN@github.com/$REPO.wiki.git
 cd ..
